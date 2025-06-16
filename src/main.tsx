@@ -7,7 +7,7 @@ import { cacheRtl, themeRtl } from "./theme.ts";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <CacheProvider value={cacheRtl}>
-      <ThemeProvider theme={themeRtl}>
+      <ThemeProvider theme={themeRtl}> 
         <MainPage />
       </ThemeProvider>
     </CacheProvider>
