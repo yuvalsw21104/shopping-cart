@@ -22,11 +22,11 @@ const MainPage = () => {
   };
 
   const handleSubmit = (item: string) => {
-    const updateItems = [...items, item];
     if (item !== "") {
+      const updateItems = [...items, item];
       localStorage.setItem("myItems", JSON.stringify(updateItems));
+      setItems((prev) => [...prev, item]);
     }
-    setItems((prev) => [...prev, item]);
   };
 
   const handleDoubleClick = (itemIndex: number) => {
@@ -53,20 +53,21 @@ const MainPage = () => {
         direction="column"
         spacing={"15px"}
         alignItems="center"
-        justifyContent="center"
+        justifyContent="flex-start"
         sx={{
           width: "20%",
+          height: "40%",
           backgroundColor: "#FFFFFF",
           border: "1px solid rgba(0, 0, 0, 0.23)",
           borderRadius: "4px",
-          paddingBottom:"20px",
-          paddingTop: "20px"
+          paddingBottom: "20px",
+          paddingTop: "20px",
         }}
       >
         <CssBaseline />
         <Typography>רשימת קניות סריקובים</Typography>{" "}
         <TextField
-          sx={{ width: "90%"}}
+          sx={{ width: "90%" }}
           id="outlined-basic"
           label="הזן פריט"
           variant="outlined"
@@ -78,8 +79,8 @@ const MainPage = () => {
             border: "1px solid rgba(0, 0, 0, 0.23)",
             borderRadius: "4px",
             width: "90%",
-
-            overflow: "scroll"
+            direction: "rtl",
+            overflowY: "scroll",
           }}
         >
           {items.map((item, index) => (
